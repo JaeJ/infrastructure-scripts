@@ -23,30 +23,59 @@ The goal of this repository is to build practical infrastructure engineering, sy
 - VPN Troubleshooting
 - Infrastructure Diagnostics
 
-## Repo Structure
+## Repository Structure
 
 ```text
 infrastructure-scripts/
-├── scripts/
-│   ├── Test-NetworkConnectivity.ps1
-│   ├── Get-NetworkInfo.ps1
-│   └── Get-SystemErrors.ps1
 ├── docs/
+│   ├── lab-progress.md
+│   ├── network-troubleshooting.md
 │   └── troubleshooting-notes.md
-├── README.md
+├── examples/
+│   └── sample-output.md
+├── scripts/
+│   ├── README.md
+│   ├── Get-NetworkConfiguration.ps1
+│   ├── Get-NetworkInfo.ps1
+│   ├── Get-RunningServices.ps1
+│   ├── Get-SystemErrors.ps1
+│   ├── Get-TopProcesses.ps1
+│   ├── Restart-NetworkAdapter.ps1
+│   ├── Test-DnsResolution.ps1
+│   ├── Test-NetworkConnectivity.ps1
+│   └── Test-PortConnectivity.ps1
 ├── .gitignore
-└── LICENSE
+├── CHANGELOG.md
+├── LICENSE
+└── README.md
 ```
 
-## Example Projects
+```markdown
+## Project Scripts
 
-- Infrastructure health monitoring
-- Network diagnostics automation
-- Windows troubleshooting automation
-- Event log analysis
-- Connectivity testing
-- VPN troubleshooting
+| Script | Description |
+|---|---|
+| `Test-NetworkConnectivity.ps1` | Tests DNS, ping, and TCP connectivity. |
+| `Get-NetworkConfiguration.ps1` | Reports Windows network adapter configuration. |
+| `Test-DnsResolution.ps1` | Tests DNS records and captures resolution failures. |
+| `Test-PortConnectivity.ps1` | Tests TCP port accessibility. |
+| `Get-NetworkInfo.ps1` | Collects basic network configuration details. |
+| `Restart-NetworkAdapter.ps1` | Restarts a Windows network adapter. |
+| `Get-RunningServices.ps1` | Reports currently running Windows services. |
+| `Get-SystemErrors.ps1` | Retrieves recent system errors for troubleshooting. |
+| `Get-TopProcesses.ps1` | Reports processes with high CPU or memory use. |
 
-## Notes
+## How to Run
 
-Do not upload passwords, API keys, VPN credentials, RDP credentials, or production system information.
+### Prerequisites
+
+- Windows PowerShell 5.1 or PowerShell 7+
+- Windows operating system
+- Administrator access for scripts that change system configuration
+
+Clone or download the repository, open PowerShell in the repository folder, and run a script:
+
+```powershell
+.\scripts\Test-NetworkConnectivity.ps1 `
+    -Target github.com `
+    -Port 443
