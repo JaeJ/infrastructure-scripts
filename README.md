@@ -52,37 +52,73 @@ infrastructure-scripts/
 
 ---
 
-## Task 5 — Add the root `README.md` script table
-
-Place this beneath the repository-structure section:
-
-```markdown
 ## Project Scripts
 
 | Script | Description |
-|---|---|
-| `Test-NetworkConnectivity.ps1` | Tests DNS, ping, and TCP connectivity. |
-| `Get-NetworkConfiguration.ps1` | Reports Windows network adapter configuration. |
-| `Test-DnsResolution.ps1` | Tests DNS records and captures resolution failures. |
+|---------|-------------|
+| `Test-NetworkConnectivity.ps1` | Tests DNS resolution, ICMP connectivity, and TCP port access. |
+| `Get-NetworkConfiguration.ps1` | Reports adapter status, IP addresses, gateways, DNS servers, and link information. |
+| `Test-DnsResolution.ps1` | Tests DNS resolution for one or more hostnames. |
 | `Test-PortConnectivity.ps1` | Tests TCP port accessibility. |
-| `Get-NetworkInfo.ps1` | Collects basic network configuration details. |
+| `Get-NetworkInfo.ps1` | Collects Windows network configuration information. |
 | `Restart-NetworkAdapter.ps1` | Restarts a Windows network adapter. |
 | `Get-RunningServices.ps1` | Reports currently running Windows services. |
-| `Get-SystemErrors.ps1` | Retrieves recent system errors for troubleshooting. |
-| `Get-TopProcesses.ps1` | Reports processes with high CPU or memory use. |
+| `Get-SystemErrors.ps1` | Retrieves recent Windows system errors. |
+| `Get-TopProcesses.ps1` | Reports processes consuming the most CPU or memory. |
 
+---
 
 ## How to Run
 
-### Prerequisites
+### Requirements
 
-- Windows PowerShell 5.1 or PowerShell 7+
-- Windows operating system
-- Administrator access for scripts that change system configuration
+- Windows PowerShell 5.1 or PowerShell 7
+- Administrator permissions (recommended)
+- Appropriate network connectivity
+- PowerShell execution policy allowing local scripts
 
-Clone or download the repository, open PowerShell in the repository folder, and run a script:
+### Open the Repository
+
+```powershell
+Set-Location .\infrastructure-scripts
+```
+
+### Run a Script
 
 ```powershell
 .\scripts\Test-NetworkConnectivity.ps1 `
     -Target github.com `
     -Port 443
+```
+
+### View Help
+
+```powershell
+Get-Help .\scripts\Test-NetworkConnectivity.ps1 -Full
+```
+
+### Example Output
+
+See:
+
+```text
+examples/sample-output.md
+```
+
+for sanitized sample output from every script.
+
+---
+
+## Notes
+
+These scripts are intended for:
+
+- Windows Systems Administration
+- Infrastructure Support
+- Network Troubleshooting
+- Desktop Engineering
+- IT Operations
+
+Review every script before running it in a production environment.
+
+Do not store passwords, API keys, customer information, or other sensitive data in this repository.
