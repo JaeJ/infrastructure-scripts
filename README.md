@@ -50,6 +50,12 @@ infrastructure-scripts/
 └── README.md
 ```
 
+---
+
+## Task 5 — Add the root `README.md` script table
+
+Place this beneath the repository-structure section:
+
 ```markdown
 ## Project Scripts
 
@@ -64,6 +70,7 @@ infrastructure-scripts/
 | `Get-RunningServices.ps1` | Reports currently running Windows services. |
 | `Get-SystemErrors.ps1` | Retrieves recent system errors for troubleshooting. |
 | `Get-TopProcesses.ps1` | Reports processes with high CPU or memory use. |
+
 
 ## How to Run
 
